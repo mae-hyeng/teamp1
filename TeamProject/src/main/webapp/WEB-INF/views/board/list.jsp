@@ -102,7 +102,7 @@
                <c:forEach var="vo" items="${list }"> 
                <tr>
                   <td>${vo.num}</td>
-                  <td>${vo.title}</td>
+                  <td><a href="board.list?num=${vo.num }">${vo.title}</a></td>
                   <td>${vo.writer}</td>
                   <td>${vo.regdate}</td>
                   <td>${vo.hit}</td>
@@ -127,9 +127,17 @@
       
    </div>
    </div>
+      <div class = "pagination">
+   	<ul>
+   		<li th:each = "page : ${numbers.sequence(0, totalPage - 1) }">
+   			<a th:href = "@{board/list(page=${pageStat.index })}" th:text="${pageStat.index + 1 }"></a>
+   		</li>
+   	</ul>
+   </div>
    
    
    
-   
+</body>
+</html>
 </body>
 </html>

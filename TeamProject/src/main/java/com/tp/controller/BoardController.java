@@ -26,7 +26,8 @@ public class BoardController {
 	@RequestMapping("/board")
 	public String main(Model model) {
 		
-//		List<BoardDTO> list = boardservice.
+		List<Board> list = boardservice.Content();
+		model.addAttribute("list", list);
 		
 		return "board/list";
 	}
@@ -38,7 +39,7 @@ public class BoardController {
 	
 	@GetMapping("/save")
 	public String saveForm() {
-		return "board/save";
+		return "board/list";
 	}
 	
 	@PostMapping("/save")
